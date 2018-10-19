@@ -1,4 +1,8 @@
 
+resource "vault_auth_backend" "ldap" {
+  type = "ldap"
+}
+
 resource "vault_ldap_auth_backend" "ldap_backend" {
   path        = "${vault_auth_backend.ldap.path}"
   url         = "ldap://auth.wh.reachlocal.com"
