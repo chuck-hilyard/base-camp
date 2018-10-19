@@ -1,4 +1,6 @@
 
+variable "vault_token" { default = "" }
+
 resource "vault_auth_backend" "ldap" {
   type = "ldap"
 }
