@@ -7,19 +7,20 @@ resource "aws_s3_bucket" "artifact_repository" {
   }
   policy = <<HereDoc
 {
-    "Id": "Policy1511988397122",
+    "Id": "Policy1539969783840",
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "Stmt1511988395222",
-            "Action": [
-                "s3:*"
-            ],
+            "Sid": "Stmt1539969782489",
+            "Action": "s3:*",
             "Effect": "Allow",
-            "Resource": [ "arn:aws:s3:::terraform-backend-media-team-dev-master", "arn:aws:s3:::terraform-backend-media-team-dev-master/*" ],
+            "Resource": [
+                "arn:aws:s3:::terraform-backend-media-team-dev-master",
+                "arn:aws:s3:::terraform-backend-media-team-dev-master/*"
+            ],
             "Condition": {
-                "IPAddress": {
-                     "aws:SourceIp": "10.10.30.0"
+                "IpAddress": {
+                    "aws:SourceIp": "10.10.30.0"
                 }
             },
             "Principal": "*"
