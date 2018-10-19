@@ -66,22 +66,22 @@ variable "use_default_vpc" {
 
 variable "vault_cluster_name" {
   description = "What to name the Vault server cluster and all of its associated resources"
-  default     = "vault-example"
+  default     = "base-camp-vault"
 }
 
 variable "consul_cluster_name" {
   description = "What to name the Consul server cluster and all of its associated resources"
-  default     = "consul-example"
+  default     = "base-camp-consul"
 }
 
 variable "vault_cluster_size" {
   description = "The number of Vault server nodes to deploy. We strongly recommend using 3 or 5."
-  default     = 3
+  default     = 4
 }
 
 variable "consul_cluster_size" {
   description = "The number of Consul server nodes to deploy. We strongly recommend using 3 or 5."
-  default     = 3
+  default     = 4
 }
 
 variable "vault_instance_type" {
