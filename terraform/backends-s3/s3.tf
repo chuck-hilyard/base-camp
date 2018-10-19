@@ -19,7 +19,7 @@ resource "aws_s3_bucket" "artifact_repository" {
             "Resource": [ "arn:aws:s3:::terraform-backend-media-team-dev-master", "arn:aws:s3:::terraform-backend-media-team-dev-master/*" ],
             "Condition": {
                 "IPAddress": {
-                     "aws:SourceIp": "10.10.30.0/32"
+                     "aws:SourceIp": "10.10.30.0"
                 }
             },
             "Principal": "*"
