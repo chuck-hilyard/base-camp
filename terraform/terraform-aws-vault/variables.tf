@@ -24,7 +24,7 @@ variable "create_dns_entry" {
 
 variable "hosted_zone_domain_name" {
   description = "The domain name of the Route 53 Hosted Zone in which to add a DNS entry for Vault (e.g. example.com). Only used if var.create_dns_entry is true."
-  default = "chilyard.media.dev.usa.reachlocalservices.com"  
+  default = "media.dev.usa.reachlocalservices.com"  
 }
 
 variable "vault_domain_name" {
