@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "s3_bucket_for_terraform_dev_mainline" {
-  bucket        = "terraform-backend-media-team-dev-master"
+  bucket        = "terraform-backend-media-team-dev-master-tmp"
   acl           = "private"
   force_destroy = true
   versioning {
