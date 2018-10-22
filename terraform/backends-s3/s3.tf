@@ -18,7 +18,11 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_dev_mainline" {
               "arn:aws:s3:::terraform-backend-media-team-dev-master",
               "arn:aws:s3:::terraform-backend-media-team-dev-master/*"
             ],
-            "Principal": "arn:aws:iam::762858336698:role/JenkinsAccess" 
+            "Principal": {
+              "AWS": [
+                "arn:aws:iam::762858336698:role/JenkinsAccess" 
+              ]
+            }
         }
     ]
 }
