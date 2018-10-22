@@ -20,7 +20,7 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_dev_mainline" {
             ],
             "Condition": {
                 "IpAddress": {
-                    "aws:SourceIp": "127.0.0.1"
+                    "aws:SourceIp": "54.240.143.0/24"
                 }
             },
             "Principal": "*"
@@ -52,7 +52,7 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_qa_mainline" {
             ],
             "Condition": {
                 "IpAddress": {
-                    "aws:SourceIp": "127.0.0.1"
+                    "aws:SourceIp": "54.240.143.0/24"
                 }
             },
             "Principal": "*"
@@ -84,7 +84,7 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_prod_mainline" {
             ],
             "Condition": {
                 "IpAddress": {
-                    "aws:SourceIp": "127.0.0.1"
+                    "aws:SourceIp": "54.240.143.0/24"
                 }
             },
             "Principal": "*"
