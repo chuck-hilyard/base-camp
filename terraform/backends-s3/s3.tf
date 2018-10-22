@@ -15,8 +15,8 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_dev_mainline" {
             "Action": "s3:*",
             "Effect": "Allow",
             "Resource": [
-              "arn:aws:s3:::terraform-backend-media-team-dev-master",
-              "arn:aws:s3:::terraform-backend-media-team-dev-master/*"
+              "arn:aws:s3:::terraform-backend-media-team-dev-master-tmp",
+              "arn:aws:s3:::terraform-backend-media-team-dev-master-tmp/*"
             ],
             "Principal": {
               "AWS": [
