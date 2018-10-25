@@ -17,7 +17,7 @@ policy = <<HereDoc
   "Statement": [
     {
       "Action": [
-        "ec2:*"
+        "*"
       ],
       "Effect": "Allow",
       "Resource": "*"
@@ -41,7 +41,7 @@ policy = <<HereDoc
   "Statement": [
     {
       "Action": [
-        "ec2:*"
+        "*"
       ],
       "Effect": "Allow",
       "Resource": "*"
