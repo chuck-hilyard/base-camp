@@ -1,7 +1,7 @@
 terraform {
     backend "s3" {
         bucket = "terraform-backend-media-team-base-camp" 
-        key = "aws-accounts/terraform.tfstate" 
+        key = "user-accounts-prod/terraform.tfstate" 
         region = "us-west-2"  
     }
 }
