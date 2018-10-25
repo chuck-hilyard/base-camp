@@ -8,10 +8,6 @@ resource "aws_iam_access_key" "jenkins" {
   user    = "${aws_iam_user.jenkins.name}"
 }
 
-output "jenkins_secret" {
-  value = "${aws_iam_access_key.jenkins.encrypted_secret}"
-}
-
 resource "aws_iam_user_policy" "base_camp_user_policy_jenkins" {
   name = "base-camp-user-policy-jenkins"
   user = "${aws_iam_user.jenkins.name}"
@@ -59,6 +55,3 @@ resource "aws_iam_access_key" "terraform" {
   user    = "${aws_iam_user.terraform.name}"
 }
 
-output "terraform_secret" {
-  value = "${aws_iam_access_key.terraform.encrypted_secret}"
-}
