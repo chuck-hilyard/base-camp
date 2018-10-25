@@ -16,8 +16,7 @@ resource "aws_iam_user_policy" "base_camp_user_policy_jenkins" {
   "Statement": [
     {
       "Action": [
-        "ec2:*",
-        "s3:*"
+        "ec2:*"
       ],
       "Effect": "Allow",
       "Resource": "*"
@@ -36,8 +35,7 @@ resource "aws_iam_user_policy" "base_camp_user_policy_terraform" {
   "Statement": [
     {
       "Action": [
-        "ec2:*",
-        "s3:*"
+        "ec2:*"
       ],
       "Effect": "Allow",
       "Resource": "*"
