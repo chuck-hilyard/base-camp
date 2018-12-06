@@ -99,3 +99,8 @@ variable "consul_cluster_tag_key" {
   description = "The tag the Consul EC2 Instances will look for to automatically discover each other and form a cluster."
   default     = "consul-servers"
 }
+
+variable "bindpass" {
+  description = "the wh ldap bind password"
+  default = ""
+}

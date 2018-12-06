@@ -7,11 +7,10 @@ resource "vault_auth_backend" "ldap" {
 
 resource "vault_ldap_auth_backend" "ldap_backend" {
   path        = "${vault_auth_backend.ldap.path}"
-  url         = "ldap://auth.wh.reachlocal.com"
-  userdn      = "OU=People,DC=reachlocal,DC=com"
-  userattr    = "sAMAccountName"
-  upndomain   = "EXAMPLE.ORG"
-  discoverdn  = false
-  groupdn     = "OU=Group,DC=reachlocal,DC=com"
-  groupfilter = "(cn=eng)"
+  url         = "ldap://10.10.255.14:389"
+  userdn      = "ou=People,dc=reachlocal,dc=com"
+  userattr    = "uid"
+  groupdn     = "ou=Group,dc=reachlocal,dc=com"
+  binddn      = "cn=PuppetMaster,dc=reachlocal,dc=com"
+  bindpass    = "${var.bindpass}"
 }
