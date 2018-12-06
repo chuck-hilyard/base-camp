@@ -6,7 +6,7 @@ resource "vault_auth_backend" "ldap" {
 }
 
 resource "vault_ldap_auth_backend" "ldap_backend" {
-  path        = "ldap2"
+  path        = "ldap"
   url         = "ldap://10.10.255.14:389"
   userdn      = "ou=People,dc=reachlocal,dc=com"
   userattr    = "uid"
