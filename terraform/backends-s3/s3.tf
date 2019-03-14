@@ -1,3 +1,4 @@
+/*
 resource "aws_s3_bucket" "s3_bucket_for_terraform_dev_mainline_tmp" {
   bucket        = "terraform-backend-media-team-dev-master-tmp"
   acl           = "private"
@@ -28,6 +29,7 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_dev_mainline_tmp" {
 }
 HereDoc
 }
+*/
 
 resource "aws_s3_bucket" "s3_bucket_for_terraform_dev_mainline" {
   bucket        = "terraform-backend-media-team-dev-master"
