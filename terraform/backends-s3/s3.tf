@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "s3_bucket_for_terraform_dev_mainline" {
+resource "aws_s3_bucket" "s3_bucket_for_terraform_dev_mainline_tmp" {
   bucket        = "terraform-backend-media-team-dev-master-tmp"
   acl           = "private"
   force_destroy = true
@@ -17,6 +17,37 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_dev_mainline" {
             "Resource": [
               "arn:aws:s3:::terraform-backend-media-team-dev-master-tmp",
               "arn:aws:s3:::terraform-backend-media-team-dev-master-tmp/*"
+            ],
+            "Principal": {
+              "AWS": [
+                "arn:aws:iam::762858336698:role/JenkinsAccess" 
+              ]
+            }
+        }
+    ]
+}
+HereDoc
+}
+
+resource "aws_s3_bucket" "s3_bucket_for_terraform_dev_mainline" {
+  bucket        = "terraform-backend-media-team-dev-master"
+  acl           = "private"
+  force_destroy = true
+  versioning {
+    enabled = true
+  }
+  policy = <<HereDoc
+{
+    "Id": "Policy1539969783840",
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Stmt1539969782489",
+            "Action": "s3:*",
+            "Effect": "Allow",
+            "Resource": [
+              "arn:aws:s3:::terraform-backend-media-team-dev-master",
+              "arn:aws:s3:::terraform-backend-media-team-dev-master/*"
             ],
             "Principal": {
               "AWS": [
