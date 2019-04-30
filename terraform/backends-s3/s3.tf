@@ -1,7 +1,7 @@
 resource "aws_s3_bucket" "s3_bucket_for_terraform_dev_mainline" {
-  bucket        = "terraform-backend-media-team-dev-master-tmp"
+  bucket        = "terraform-backend-media-team-dev-master"
   acl           = "private"
-  force_destroy = true
+  force_destroy = false
   versioning {
     enabled = true
   }
@@ -22,6 +22,11 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_dev_mainline" {
               "AWS": [
                 "arn:aws:iam::762858336698:role/JenkinsAccess" 
               ]
+            },
+            "Condition": {
+                "IpAddress": {
+                    "aws:SourceIp": "35.165.90.83/24"
+                }
             }
         }
     ]
@@ -32,7 +37,7 @@ HereDoc
 resource "aws_s3_bucket" "s3_bucket_for_terraform_qa_mainline" {
   bucket        = "terraform-backend-media-team-qa-master"
   acl           = "private"
-  force_destroy = true
+  force_destroy = false
   versioning {
     enabled = true
   }
@@ -51,7 +56,7 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_qa_mainline" {
             ],
             "Condition": {
                 "IpAddress": {
-                    "aws:SourceIp": "54.240.143.0/24"
+                    "aws:SourceIp": "35.165.90.83/24"
                 }
             },
             "Principal": "*"
@@ -64,7 +69,7 @@ HereDoc
 resource "aws_s3_bucket" "s3_bucket_for_terraform_prod_mainline" {
   bucket        = "terraform-backend-media-team-prod-master"
   acl           = "private"
-  force_destroy = true
+  force_destroy = false
   versioning {
     enabled = true
   }
@@ -83,7 +88,7 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_prod_mainline" {
             ],
             "Condition": {
                 "IpAddress": {
-                    "aws:SourceIp": "54.240.143.0/24"
+                    "aws:SourceIp": "35.165.90.83/24"
                 }
             },
             "Principal": "*"
