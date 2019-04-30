@@ -54,7 +54,7 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_qa_mainline" {
                 "arn:aws:s3:::terraform-backend-media-team-qa-master/*"
             ],
             "Condition": {
-                "IpAddress": {
+                "NotIpAddress": {
                     "aws:SourceIp": "35.165.90.83/24"
                 }
             },
@@ -85,7 +85,7 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_prod_mainline" {
                 "arn:aws:s3:::terraform-backend-media-team-prod-master/*"
             ],
             "Condition": {
-                "IpAddress": {
+                "NotIpAddress": {
                     "aws:SourceIp": "35.165.90.83/24"
                 }
             },
