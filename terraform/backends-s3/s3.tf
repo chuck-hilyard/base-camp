@@ -16,12 +16,11 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_dev_mainline" {
             "Action": "s3:*",
             "Effect": "Deny",
             "Resource": [
-              "arn:aws:s3:::terraform-backend-media-team-dev-master",
               "arn:aws:s3:::terraform-backend-media-team-dev-master/*"
             ],
             "Principal": {
               "AWS": [
-                "arn:aws:iam::762858336698:role/JenkinsAccess" 
+                "*"
               ]
             },
             "Condition": {
@@ -50,9 +49,8 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_qa_mainline" {
         {
             "Sid": "Stmt1539969782489",
             "Action": "s3:*",
-            "Effect": "Allow",
+            "Effect": "Deny",
             "Resource": [
-                "arn:aws:s3:::terraform-backend-media-team-qa-master",
                 "arn:aws:s3:::terraform-backend-media-team-qa-master/*"
             ],
             "Condition": {
@@ -82,9 +80,8 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_prod_mainline" {
         {
             "Sid": "Stmt1539969782489",
             "Action": "s3:*",
-            "Effect": "Allow",
+            "Effect": "Deny",
             "Resource": [
-                "arn:aws:s3:::terraform-backend-media-team-prod-master",
                 "arn:aws:s3:::terraform-backend-media-team-prod-master/*"
             ],
             "Condition": {
