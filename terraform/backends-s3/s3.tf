@@ -1,3 +1,4 @@
+/*
 resource "aws_s3_bucket" "s3_bucket_for_terraform_dev_mainline" {
   bucket        = "terraform-backend-media-team-dev-master"
   acl           = "private"
@@ -33,11 +34,12 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_dev_mainline" {
 }
 HereDoc
 }
+/*
 
 resource "aws_s3_bucket" "s3_bucket_for_terraform_dev_mainline" {
   bucket        = "terraform-backend-media-team-dev-master"
   acl           = "private"
-  force_destroy = true
+  force_destroy = false
   versioning {
     enabled = true
   }
@@ -58,6 +60,11 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_dev_mainline" {
               "AWS": [
                 "arn:aws:iam::762858336698:role/JenkinsAccess" 
               ]
+            },
+            "Condition": {
+                "IpAddress": {
+                    "aws:SourceIp": "35.165.90.83/24"
+                }
             }
         }
     ]
