@@ -106,7 +106,9 @@ resource "aws_s3_bucket" "secrets_source" {
     role = "${aws_iam_role.secrets_replication.arn}"
     rules {
       status = "Enabled"
-      destination = ["${aws_s3_bucket.secrets_destination.arn}"]
+      destination {
+        bucket = "${aws_s3_bucket.secrets_destination.arn}"
+      }
     }
   }
   versioning {
