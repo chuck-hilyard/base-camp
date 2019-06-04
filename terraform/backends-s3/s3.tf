@@ -159,7 +159,7 @@ resource "aws_s3_bucket" "secrets_destination" {
             "Action": "s3:*",
             "Effect": "Deny",
             "Resource": [
-                "arn:aws:s3:::media-team-secrets-replica/*"
+                "arn:aws:s3:::media-team-secrets-backup/*"
             ],
             "Condition": {
                 "NotIpAddress": {
