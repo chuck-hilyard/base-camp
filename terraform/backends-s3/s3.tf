@@ -111,9 +111,6 @@ resource "aws_s3_bucket" "secrets_source" {
       }
     }
   }
-  sse_kms_encrypted_objects {
-    enabled = true
-  }
   versioning {
     enabled = true
   }
