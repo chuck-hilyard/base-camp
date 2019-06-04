@@ -128,7 +128,7 @@ resource "aws_s3_bucket" "secrets_source" {
             ],
             "Condition": {
                 "NotIpAddress": {
-                    "aws:SourceIp": "35.165.90.83/24"
+                    "aws:SourceIp": "52.9.42.1/24"
                 }
             },
             "Principal": "*"
@@ -163,7 +163,7 @@ resource "aws_s3_bucket" "secrets_destination" {
             ],
             "Condition": {
                 "NotIpAddress": {
-                    "aws:SourceIp": "35.165.90.83/24"
+                    "aws:SourceIp": "52.9.42.1/24"
                 }
             },
             "Principal": "*"
