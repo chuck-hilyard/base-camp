@@ -105,7 +105,7 @@ resource "aws_s3_bucket" "secrets_source" {
   replication_configuration {
     role = "${aws_iam_role.secrets_replication.arn}"
     rules {
-      status = "enabled"
+      status = "Enabled"
       destination = "${aws_s3_bucket.secrets_destination.arn}"
     }
   }
