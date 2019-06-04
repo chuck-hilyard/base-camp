@@ -96,3 +96,78 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_prod_mainline" {
 HereDoc
 }
 
+resource "aws_s3_bucket" "secrets_source" {
+  bucket        = "media-team-secrets"
+  acl           = "private"
+  force_destroy = false
+  #logging       {}
+  region        = "us-west-2"
+  replication_configuration {
+    role = "${aws_iam_role.secrets_replication.arn}"
+    rules {
+      status = "enabled"
+      destination = "${aws_s3_bucket.secrets_destination.arn}"
+    }
+  }
+  versioning {
+    enabled = true
+  }
+  policy = <<HereDoc
+{
+    "Id": "Policy1539969783840",
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Stmt1539969782489",
+            "Action": "s3:*",
+            "Effect": "Deny",
+            "Resource": [
+                "arn:aws:s3:::media-team-secrets/*"
+            ],
+            "Condition": {
+                "NotIpAddress": {
+                    "aws:SourceIp": "35.165.90.83/24"
+                }
+            },
+            "Principal": "*"
+        }
+    ]
+}
+HereDoc
+}
+
+
+resource "aws_s3_bucket" "secrets_destination" {
+  bucket        = "media-team-secrets-replica"
+  acl           = "private"
+  force_destroy = false
+  #logging       {}
+  region        = "us-east-1"
+  versioning {
+    enabled = true
+  }
+  policy = <<HereDoc
+{
+    "Id": "Policy1539969783840",
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Stmt1539969782489",
+            "Action": "s3:*",
+            "Effect": "Deny",
+            "Resource": [
+                "arn:aws:s3:::media-team-secrets-replica/*"
+            ],
+            "Condition": {
+                "NotIpAddress": {
+                    "aws:SourceIp": "35.165.90.83/24"
+                }
+            },
+            "Principal": "*"
+        }
+    ]
+}
+HereDoc
+}
+
+
