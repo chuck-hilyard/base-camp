@@ -140,6 +140,7 @@ HereDoc
 
 
 resource "aws_s3_bucket" "secrets_destination" {
+  provider      = "aws.can"
   bucket        = "media-team-secrets-replica"
   acl           = "private"
   force_destroy = false
