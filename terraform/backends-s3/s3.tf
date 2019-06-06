@@ -139,6 +139,18 @@ resource "aws_s3_bucket" "secrets_source" {
                 }
             },
             "Principal": "*"
+        },
+        {
+            "Sid": "Stmt1559834358936",
+            "Action": "s3:*",
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::media-team-secrets",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::762858336698:user/media.vault",
+                    "${aws_iam_role.secrets_replication.arn}"
+                ]
+            }
         }
     ]
 }
@@ -174,6 +186,18 @@ resource "aws_s3_bucket" "secrets_destination" {
                 }
             },
             "Principal": "*"
+        },
+        {
+            "Sid": "Stmt1559834358936",
+            "Action": "s3:*",
+            "Effect": "Allow",
+            "Resource": "arn:aws:s3:::media-team-secrets",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::762858336698:user/media.vault",
+                    "${aws_iam_role.secrets_replication.arn}"
+                ]
+            }
         }
     ]
 }
