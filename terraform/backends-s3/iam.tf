@@ -1,8 +1,8 @@
 #arn:aws:iam::762858336698:role/service-role/s3crr_role_for_media-team-secrets_to_media-team-secrets-backup
 resource "aws_iam_service_linked_role" "secrets_replication_service_linked_role" {
   description      = "media-team-secrets-replication-service-role"
-  #aws_service_name = "s3..amazonaws.com"
-  aws_service_name = "elasticbeanstalk.amazonaws.com"
+  aws_service_name = "s3.amazonaws.com"
+  #aws_service_name = "elasticbeanstalk.amazonaws.com"
 }
 
 resource "aws_iam_role" "secrets_replication" {
