@@ -148,7 +148,8 @@ resource "aws_s3_bucket" "secrets_source" {
             "Principal": {
                 "AWS": [
                     "arn:aws:iam::762858336698:user/media.vault",
-                    "${aws_iam_role.secrets_replication.arn}"
+                    "${aws_iam_role.secrets_replication.arn}",
+                    "arn:aws:iam::762858336698:role/AdminFA"
                 ]
             }
         }
@@ -194,8 +195,7 @@ resource "aws_s3_bucket" "secrets_destination" {
             "Resource": "arn:aws:s3:::media-team-secrets",
             "Principal": {
                 "AWS": [
-                    "arn:aws:iam::762858336698:user/media.vault",
-                    "${aws_iam_role.secrets_replication.arn}"
+                    "arn:aws:iam::762858336698:user/media.vault"
                 ]
             }
         }
