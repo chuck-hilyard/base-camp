@@ -192,10 +192,12 @@ resource "aws_s3_bucket" "secrets_destination" {
             "Sid": "Stmt1559834358936",
             "Action": "s3:*",
             "Effect": "Allow",
-            "Resource": "arn:aws:s3:::media-team-secrets",
+            "Resource": "arn:aws:s3:::media-team-secrets-backup",
             "Principal": {
                 "AWS": [
-                    "arn:aws:iam::762858336698:user/media.vault"
+                    "arn:aws:iam::762858336698:user/media.vault",
+                    "${aws_iam_role.secrets_replication.arn}",
+                    "arn:aws:iam::762858336698:role/AdminFA"
                 ]
             }
         }
