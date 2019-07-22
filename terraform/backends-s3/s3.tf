@@ -96,6 +96,15 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_prod_mainline" {
 HereDoc
 }
 
+
+//MEDIA TEAM SECRETS
+
+resource "aws_s3_bucket_public_access_block" "secrets_source" {
+  bucket = "${aws_s3_bucket.secrets_source.id}"
+  block_public_acls   = true
+  block_public_policy = true
+}
+
 resource "aws_s3_bucket" "secrets_source" {
   bucket        = "media-team-secrets"
   acl           = "private"
