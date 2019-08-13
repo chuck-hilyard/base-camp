@@ -191,6 +191,20 @@ resource "aws_s3_bucket" "secrets_source" {
             },
             "Action": "s3:*",
             "Resource": "arn:aws:s3:::media-team-secrets/qa/*"
+        },
+        {
+            "Sid": "Stmt1559834358938",
+            "Effect": "Deny",
+            "NotPrincipal": {
+                "AWS": [
+                    "arn:aws:iam::762858336698:role/AdminFA",
+                    "arn:aws:iam::762858336698:user/media.vault",
+                    "arn:aws:iam::762858336698:role/media-team-secrets-replication",
+                    "arn:aws:iam::762858336698:user/test"
+                ]
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::media-team-secrets/prod/*"
         }
     ]
 }
