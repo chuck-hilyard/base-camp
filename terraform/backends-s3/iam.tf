@@ -60,14 +60,13 @@ HereDoc
 
 resource "aws_iam_user" "secrets_user" {
   name = "media.secrets.user"
-  assume_role_policy = <<EOF
 }
 
 resource "aws_iam_access_key" "secrets_user" {
   user   = "${aws_iam_user.secrets_user.name}" 
   policy = <<HereDoc 
 {
-    "Version": "2012-10-17",
+  "Version": "2012-10-17",
   "Statement": [
     {
       "Action": [
