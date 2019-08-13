@@ -147,8 +147,7 @@ resource "aws_s3_bucket" "secrets_source_user" {
             "NotPrincipal": { 
               "AWS": [
                 "arn:aws:iam::762858336698:role/AdminFA", 
-                "arn:aws:iam::762858336698:user/media.terraform", 
-                "arn:aws:iam::762858336698:user/vault.secrets.user"
+                "arn:aws:iam::762858336698:user/media.terraform" 
               ]
             }
         }
