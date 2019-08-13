@@ -58,21 +58,25 @@ resource "aws_iam_policy" "secrets_replication" {
 HereDoc
 }
 
-resource "aws_iam_role" "secrets_user" {
-  name = "media-team-secrets-user"
+resource "aws_iam_user" "secrets_user" {
+  name = "media.secrets.user"
   assume_role_policy = <<EOF
+}
+
+resource "aws_iam_access_key" "secrets_user" {
+  user   = "${aws_iam_user.secrets_user.name}" 
+  policy = <<HereDoc 
 {
-  "Version": "2012-10-17",
+    "Version": "2012-10-17",
   "Statement": [
     {
-      "Action": "sts:AssumeRole",
-      "Principal": {
-        "Service": "s3.amazonaws.com"
-      },
+      "Action": [
+        "s3:*"
+      ],
       "Effect": "Allow",
-      "Sid": ""
+      "Resource": "${aws_s3_bucket.secrets_source_user.arn}"
     }
   ]
 }
-EOF
+HereDoc
 }
