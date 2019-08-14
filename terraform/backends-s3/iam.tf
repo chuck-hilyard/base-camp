@@ -68,6 +68,7 @@ resource "aws_iam_access_key" "secrets_user" {
 
 resource "aws_iam_user_policy" "secrets_user" {
   name   = "${aws_iam_user.secrets_user.name}"
+  user   = "${aws_iam_user.secrets_user.name}"
   policy = <<HereDoc 
 {
   "Version": "2012-10-17",
