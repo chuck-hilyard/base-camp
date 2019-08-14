@@ -75,7 +75,7 @@ resource "aws_iam_user_policy" "secrets_user" {
   "Statement": [
     {
       "Action": [
-        "ec2:Describe*"
+        "s3:*"
       ],
       "Effect": "Allow",
       "Resource": "*"
