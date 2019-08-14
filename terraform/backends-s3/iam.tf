@@ -82,4 +82,5 @@ resource "aws_iam_user_policy" "secrets_user" {
     }
   ]
 }
-EOF}
+EOF
+}
