@@ -112,7 +112,7 @@ resource "aws_s3_bucket" "secrets_source_user" {
   acl           = "private"
   force_destroy = false
   #logging       {}
-  region        = "us-west-2"
+  #region        = "us-west-2"
   replication_configuration {
     role = "${aws_iam_role.secrets_replication.arn}"
     rules {
@@ -163,7 +163,7 @@ resource "aws_s3_bucket" "secrets_source_preprod" {
   acl           = "private"
   force_destroy = false
   #logging       {}
-  region        = "us-west-2"
+  #region        = "us-west-2"
   replication_configuration {
     role = "${aws_iam_role.secrets_replication.arn}"
     rules {
@@ -264,7 +264,7 @@ resource "aws_s3_bucket" "secrets_source_prod" {
   acl           = "private"
   force_destroy = false
   #logging       {}
-  region        = "us-west-2"
+  #region        = "us-west-2"
   replication_configuration {
     role = "${aws_iam_role.secrets_replication.arn}"
     rules {
@@ -366,7 +366,7 @@ resource "aws_s3_bucket" "secrets_destination_user" {
   acl           = "private"
   force_destroy = false
   #logging       {}
-  region        = "us-east-1"
+  #region        = "us-east-1"
   versioning {
     enabled = true
   }
