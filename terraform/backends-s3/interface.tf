@@ -21,3 +21,4 @@ variable "enable" { default = "" }
 variable "sumo_access_id" { default = "" }
 variable "sumo_access_key" { default = "" }
 variable "newrelic_license" { default = "" }
+
