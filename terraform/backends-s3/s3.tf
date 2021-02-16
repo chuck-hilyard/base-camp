@@ -65,6 +65,37 @@ resource "aws_s3_bucket" "s3_bucket_for_terraform_qa_mainline" {
 HereDoc
 }
 
+resource "aws_s3_bucket" "s3_bucket_for_terraform_stg_mainline" {
+  bucket        = "terraform-backend-media-team-stg-master"
+  acl           = "private"
+  force_destroy = false
+  versioning {
+    enabled = true
+  }
+  policy = <<HereDoc
+{
+    "Id": "Policy1539969783840",
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Stmt1539969782489",
+            "Action": "s3:*",
+            "Effect": "Deny",
+            "Resource": [
+                "arn:aws:s3:::terraform-backend-media-team-stg-master/*"
+            ],
+            "Condition": {
+                "NotIpAddress": {
+                    "aws:SourceIp": ["34.210.37.81/32", "35.161.64.110/32", "35.165.90.83/32"]
+                }
+            },
+            "Principal": "*"
+        }
+    ]
+}
+HereDoc
+}
+
 resource "aws_s3_bucket" "s3_bucket_for_terraform_prod_mainline" {
   bucket        = "terraform-backend-media-team-prod-master"
   acl           = "private"
